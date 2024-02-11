@@ -22,13 +22,14 @@ class _DetailPageState extends State<DetailPage> {
         centerTitle: true,
         title: Text(
           data['tags'],
-          style: TextStyle(color: Color(0xffDDE6ED)),
+          style: const TextStyle(color: Color(0xffDDE6ED)),
         ),
+        //BouttonForPop
         leading: IconButton(
           onPressed: () {
             Navigator.of(context).pop();
           },
-          icon: Icon(Icons.arrow_back_sharp),
+          icon: const Icon(Icons.arrow_back_sharp),
           color: Color(0xffDDE6ED),
         ),
         backgroundColor: const Color(0xff27374D),
@@ -37,10 +38,20 @@ class _DetailPageState extends State<DetailPage> {
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Image.network(data['previewURL']),
-            ],
+          child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                      offset: Offset(3, 3), blurRadius: 5, color: Colors.grey)
+                ],
+                image: DecorationImage(
+                    image: NetworkImage(
+                      data['previewURL'],
+                    ),
+                    fit: BoxFit.fill)),
+            height: h * 0.6,
+            width: double.infinity,
           ),
         ),
       ),
