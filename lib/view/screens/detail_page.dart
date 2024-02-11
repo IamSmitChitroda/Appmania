@@ -57,9 +57,23 @@ class _DetailPageState extends State<DetailPage> {
       ),
       floatingActionButton: FloatingActionButton.extended(
           onPressed: () {
-            (!favWallpaper.contains(data))
-                ? favWallpaper.add(data)
-                : favWallpaper.remove(data);
+            if (!favWallpaper.contains(data)) {
+              favWallpaper.add(data);
+              var snackBar = const SnackBar(
+                content: Text("Add In favourite"),
+                backgroundColor: Colors.green,
+                behavior: SnackBarBehavior.floating,
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            } else {
+              favWallpaper.remove(data);
+              var snackBar = const SnackBar(
+                content: Text("Remove From favourite"),
+                backgroundColor: Colors.red,
+                behavior: SnackBarBehavior.floating,
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            }
           },
           icon: const Icon(
             Icons.favorite,
