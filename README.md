@@ -48,4 +48,4 @@ Special thanks to the UI designer for providing the inspiration for this project
 
 ## Contact
 
-For any inquiries or feedback, please contact (smitchitroda2210@gmail.com).
+For any inquiries or feedback, please contact [Smit Chitroda](smitchitroda2210@gmail.com).
